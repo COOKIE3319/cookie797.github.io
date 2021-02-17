@@ -1,0 +1,104 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no">
+<meta content="yes" name="apple-mobile-web-app-capable">
+<meta content="telephone=no" name="format-detection">
+<script type="text/javascript" language="javascript" src="/m/skin/js/jq.js"></script>
+<script type="text/javascript" language="javascript" src="/m/skin/js/js.js"></script>
+<link href="/m/skin/css/css.css" type="text/css" rel="stylesheet" />
+<meta name="author" content="order by dede58.com" />
+<title>{dede:global.cfg_webname/}移动版</title>
+<meta name="description" content="{dede:global.cfg_description/}" />
+<meta name="keywords" content="{dede:global.cfg_keywords/}" />
+</head>
+
+<body>
+{dede:include filename="nav_m.htm"/}
+<div class="mainboxbg"></div>
+<div class="mainbox">
+{dede:include filename="header_m.htm"/}
+  <!---------banner END----------->
+  
+  <div class="in_about">
+    <div class="in_about_img"><img src="/m/skin/img/2017030714129072.jpg"></div>
+    <div>
+      <p class="in_about_tt"><i><img src="/m/skin/img/ticps.jpg"></i>{dede:global.cfg_webname/}</p>
+      <p class="in_about_txt">{dede:sql sql='Select content from dede_arctype where id=1'}[field:content function='cn_substr(html2text(@me),660)'/] {/dede:sql} ...</p>
+    </div>
+  </div>
+  <!---------关于我们 END----------->
+  {dede:channelartlist typeid='2,0'}
+  <div class="clearfix bg01">
+    <div class="title_bg">{dede:field name='typenameen'/}<i>{dede:field name='typename'/}</i></div>
+    <ul class="cpzslist imgautolist">
+    {dede:arclist titlelen=80 orderby ='pubdate' row='4'}    
+      <li> <a href="view.php?aid=[field:id/]">
+        <div class="imgbox">
+          <div class="imgpic"><span><img src="[field:picname/]" alt="[field:title/]"></span></div>
+          <div class="ttbg">[field:title/]</div>
+        </div>
+        </a> </li>
+    {/dede:arclist}     
+    </ul>
+    <div class="in_more01"><a href="list.php?tid={dede:field name='id'/}">查看更多+</a></div>
+  </div>
+  {/dede:channelartlist}  
+  <!---------产品中心 END----------->
+  {dede:channelartlist typeid='5,0'}
+  <div class="clearfix in_news_box">
+    <div class="title_bg">{dede:field name='typenameen'/}<i>{dede:field name='typename'/}</i></div>
+    <ul class="news">
+     {dede:arclist titlelen=80 orderby ='pubdate' row='3'}    
+      <li>
+        <div class="page_time_box">
+          <p class="page_time_day">[field:pubdate function="MyDate('d',@me)"/]</p>
+          <p class="page_time_ny">[field:pubdate function="MyDate('Y.m',@me)"/]</p>
+        </div>
+        <div class="page_new_con_box">
+          <p><a href="view.php?aid=[field:id/]">[field:title/]</a></p>
+          <p>[field:description function="cn_substr(@me,120)"/]...</p>
+        </div>
+      </li>
+     {/dede:arclist}   
+    </ul>
+    <div class="in_more02"><a href="list.php?tid={dede:field name='id'/}">查看更多+</a></div>
+  </div>
+  {/dede:channelartlist} 
+  <!---------新闻资讯 END----------->
+  {dede:channelartlist typeid='4,0'}
+  <div class="in_case_box">
+    <div class="title_bg">{dede:field name='typenameen'/}<i>{dede:field name='typename'/}</i></div>
+    <div id="slideBox1" class="slideBox">
+      <div class="bd">
+        <ul>
+        {dede:arclist titlelen=80 orderby ='pubdate'}   
+          <li><img src="[field:picname/]" alt="[field:title/]"/> <span>
+            <p><a href="view.php?aid=[field:id/]">[field:title/]</a></p>
+            </span> </li>
+        {/dede:arclist}      
+        </ul>
+      </div>
+      <a class="prev" href="javascript:void(0)"></a> <a class="next" href="javascript:void(0)"></a>
+      <div class="hd">
+        <ul>
+        </ul>
+      </div>
+    </div>
+    <script type="text/javascript">
+      TouchSlide({ 
+        slideCell:"#slideBox1",
+        mainCell:".bd ul", 
+        effect:"leftLoop", 
+        autoPlay:true, //自动播放
+        interTime:6500,
+      });
+    </script> 
+  </div>
+  {/dede:channelartlist} 
+  <!---------经典案例 END----------->
+{dede:include filename="footer_m.htm"/}
+</body>
+</html>

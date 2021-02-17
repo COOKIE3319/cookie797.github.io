@@ -1,0 +1,28 @@
+<div id="header" class="clearfix">
+  <div id="logo"><img src="/m/skin/img/logo.png" alt=""></div>
+  <div class="flbox"><img src="/m/skin/img/nav.png" alt="导航"></div>
+</div>
+<script type="text/javascript" language="javascript" src="/m/skin/js/banner.js"></script>
+<div id="slideBox" class="slideBox">
+  <div class="bd">
+    <ul>
+    {dede:arclist titlelen=80 orderby ='pubdate' row='3' typeid='17'}    
+      <li><a href="#"><img src="[field:picname/]"/></a></li>
+    {/dede:arclist} 
+    </ul>
+  </div>
+  <div class="hd">
+    <ul>
+    </ul>
+  </div>
+</div>
+<script type="text/javascript">
+	TouchSlide({ 
+	  slideCell:"#slideBox",
+	  titCell:".hd ul", //开启自动分页 autoPage:true ，此时设置 titCell 为导航元素包裹层
+	  mainCell:".bd ul", 
+	  effect:"leftLoop", 
+	  autoPage:true,//自动分页
+	  autoPlay:true //自动播放
+	});
+  </script> 
